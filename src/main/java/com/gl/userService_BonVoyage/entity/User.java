@@ -6,6 +6,8 @@ import jakarta.validation.constraints.Email;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -35,4 +37,7 @@ public class User {
     private String userAddress;
     @Column(nullable = false)
     private String userRole;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserWishList> userWishListList;
 }
