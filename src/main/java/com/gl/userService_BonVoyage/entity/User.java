@@ -14,11 +14,10 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name="user")
+@Table(name="users")
 public class User {
     @Id
-    @GeneratedValue(generator = "custom-id-generator")
-    @GenericGenerator(name = "custom-id-generator", strategy = "com.gl.userService_BonVoyage.util.CustomIdGenerator")
+    @Column(unique = true,nullable = false)
     private String userId;
 
     @Column(unique = true,nullable = false)
@@ -39,5 +38,5 @@ public class User {
     private String userRole;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<UserWishList> userWishListList;
+    private List<UserWishList> userWishList;
 }
