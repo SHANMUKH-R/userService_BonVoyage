@@ -1,6 +1,4 @@
-package com.gl.userService_BonVoyage.service;
-
-package com.example.userservice.util;
+package com.gl.userService_BonVoyage.util;
 
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.IdentifierGenerator;
@@ -35,4 +33,3 @@ public class CustomIdGenerator implements IdentifierGenerator {
         return prefix + 101;
     }
 }
-
