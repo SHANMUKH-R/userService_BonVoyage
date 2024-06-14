@@ -17,7 +17,8 @@ import java.util.List;
 @Table(name="users")
 public class User {
     @Id
-    @Column(unique = true,nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GenericGenerator(name = "custom-id-generator", strategy = "com.example.userservice.util.CustomIdGenerator")
     private String userId;
 
     @Column(unique = true,nullable = false)
